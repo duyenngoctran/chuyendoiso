@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trang Chủ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://demo.themesberg.com/volt/css/volt.css" />
+  <style>
+    body {
+      background-color: #97a7c0;
+      font-family: "Inter", sans-serif;
+    }
+    .navbar {
+      background: white;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    }
+    .navbar-brand { font-weight: 600; color: #eb6e25 !important; }
+    .card {
+      border: 0;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .btn {
+      border-radius: 10px;
+      font-weight: 500;
+      transition: all .15s ease;
+    }
+    .btn:hover { filter: brightness(1.08); }
+    textarea { resize: none; line-height: 1.6; }
+    .result-pos { background: #e9f8ef; border-left: 5px solid #106193; }
+    .result-neg { background: #fdeaea; border-left: 5px solid #dc2626; }
+    footer {
+      border-top: 1px solid #e5e7eb;
+      text-align: center;
+      font-size: 14px;
+      color: #6b7280;
+      padding: 20px 0;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="#">PHÂN TÍCH CẢM XÚC SINH VIÊN</a>
+  </div>
+</nav>
+
+<div class="container-xl">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, msg in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show text-center">
+          {{ msg }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <div class="row g-4">
+    <!-- Dự đoán nhanh -->
+    <div class="row g-4 align-items-stretch">
+  <!-- Dự đoán nhanh -->
+  <div class="col-lg-6">
+    <div class="card h-100 p-4 d-flex flex-column">
+      <!-- Tiêu đề (không phải submit) -->
+      <div class="text-white text-center fw-semibold py-2 px-3 mb-3"
+           style="background:#11116e;border-radius:12px;">
+        Dự đoán nhanh
+      </div>
+
+      <form action="{{ url_for('predict') }}" method="POST" class="d-flex flex-column flex-grow-1">
+        <!-- flex-grow-1 để phần textarea chiếm chỗ và hai card cao bằng nhau -->
+        <textarea class="form-control mb-3 flex-grow-1" name="single_text" rows="5"
+                  placeholder="Nhập bình luận để phân tích...">{{ single_input or "" }}</textarea>
+
+        <button type="submit"
+                style="background-color:#f97316;color:white;border:none;padding:10px 22px;border-radius:10px;"
+                class="mt-auto">
+          Phân tích
+        </button>
+      </form>
+
+      {% if single_label %}
+      <div class="mt-4 p-3 rounded {{ 'result-pos' if single_label=='pos' else 'result-neg' }}">
+        <h6 class="fw-bold mb-1">{{ 'Tích cực' if single_label=='pos' else 'Tiêu cực' }}</h6>
+        <small>Xác suất POS: {{ single_prob }}%</small>
+        {% if single_input %}
+          <hr class="my-2" />
+          <small class="text-muted">{{ single_input }}</small>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Phân tích file CSV -->
+  <div class="col-lg-6">
+    <div class="card h-100 p-4 d-flex flex-column">
+      <!-- Tiêu đề (không phải submit) -->
+      <div class="text-white text-center fw-semibold py-2 px-3 mb-3"
+           style="background:#11116e;border-radius:12px;">
+        Phân tích file CSV
+      </div>
+
+      <form action="/" method="POST" enctype="multipart/form-data" class="d-flex flex-column flex-grow-1">
+        <input type="file" name="file" class="form-control mb-3" accept=".csv" required />
+        <button type="submit"
+                style="background-color:#f97316;color:white;border:none;padding:10px 22px;border-radius:10px;"
+                class="mt-auto">
+          Tải file &amp; Phân tích
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+  <!-- Hướng dẫn -->
+  <div class="mt-5">
+    <div class="card p-4">
+      <h6 class="fw-semibold mb-3 text-dark">Hướng dẫn sử dụng</h6>
+      <ol class="text-muted" style="font-size:15px;">
+        <li>Nhập bình luận vào ô bên trái để phân tích nhanh cảm xúc.</li>
+        <li>Tải file CSV chứa nhiều bình luận ở ô bên phải để phân tích hàng loạt.</li>
+        <li>Kết quả sẽ hiển thị kèm xác suất và file xuất để tải về.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+<footer>
+  © 2025 Trần Ngọc Duyên | CNTT 16_05 - Đại Học Đại Nam
+</footer>
+
+<script src="https://demo.themesberg.com/volt/js/volt.js"></script>
+</body>
+</html>

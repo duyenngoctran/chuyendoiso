@@ -1,0 +1,21 @@
+text,prob_neg,prob_pos,pred_label
+Thầy giảng rất dễ hiểu và nhiệt tình.,0.0034350753,0.9965649,pos
+Bài giảng hơi nhanh khó theo kịp.,0.96378905,0.03621096,neg
+Môn học thú vị kiến thức bổ ích.,0.9935158,0.006484207,neg
+Phần thực hành hơi ít chưa rõ ràng.,0.9976227,0.0023772642,neg
+Cô giáo giảng hay ví dụ sinh động.,0.019723058,0.98027694,pos
+Bài kiểm tra khó điểm thấp quá.,0.9987623,0.0012376833,neg
+Lớp học vui vẻ thầy thân thiện.,0.008289635,0.99171036,pos
+Không có bài tập về nhà hơi buồn chán.,0.9989907,0.0010093099,neg
+Giảng viên nhiệt tình trả lời câu hỏi.,0.99008983,0.009910155,neg
+Học phần này thật sự quá tải.,0.98810333,0.011896656,neg
+Bài giảng rất hấp dẫn dễ hiểu.,0.0023761392,0.99762386,pos
+Thầy cô luôn hỗ trợ sinh viên rất tốt.,0.007104337,0.99289566,pos
+Giảng hơi nhanh cần chậm lại một chút.,0.12475681,0.8752432,pos
+Đề thi quá dài thời gian không đủ.,0.99238455,0.00761546,neg
+Phản hồi nhanh hỗ trợ sinh viên chu đáo.,0.021990418,0.9780096,pos
+Thực hành ít quá chưa nắm vững kiến thức.,0.9983303,0.0016696927,neg
+Bài tập hợp lý giúp hiểu bài hơn.,0.989642,0.010357965,neg
+Cách dạy rõ ràng dễ hiểu.,0.0065900683,0.99340993,pos
+Chấm điểm hơi gắt cần công bằng hơn.,0.9921916,0.0078083933,neg
+Môn học tuyệt vời đáng để học lại.,0.19045377,0.80954623,pos

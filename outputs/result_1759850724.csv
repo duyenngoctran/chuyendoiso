@@ -1,0 +1,11 @@
+text,prob_neg,prob_pos,pred_label
+Ui dễ thương quá trời 😍,0.0298872,0.9701128,pos
+Clip này cười xỉu luôn 😂😂,0.98857856,0.01142144,neg
+Hơi nhạt nha chưa cuốn lắm.,0.99638236,0.0036176562,neg
+Trend này thấy hoài luôn chán rồi 😩,0.98956734,0.0104326485,neg
+Đỉnh của chóp luôn 🤩,0.9902176,0.009782347,neg
+Gì vậy trời không hiểu nổi 😅,0.99712867,0.0028713522,neg
+Tui thích cách edit clip này nè.,0.07911587,0.92088413,pos
+Làm lại cái này bản rõ hơn đi bạn ơi.,0.97387195,0.026128031,neg
+Hài mà thật sự dễ thương 😆,0.0049061775,0.9950938,pos
+Không vui chút nào edit dở quá.,0.6690135,0.33098653,neg

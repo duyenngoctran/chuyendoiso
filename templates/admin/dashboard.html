@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div style="max-width:900px;margin:32px auto;">
+      <h2>Trang quản trị</h2>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for cat, msg in messages %}
+            <div class="alert alert-{{ cat }}">{{ msg }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+      <p>
+        <a class="btn btn-secondary" href="{{ url_for('admin.logout') }}">Đăng xuất</a>
+        <a class="btn btn-outline-primary" href="{{ url_for('index') }}">Về trang chính</a>
+      </p>
+
+      <h4>Files upload gần đây</h4>
+      {% if uploads %}
+        <ul>
+          {% for f in uploads %}<li>{{ f }}</li>{% endfor %}
+        </ul>
+      {% else %}
+        <p>Không có file trong thư mục uploads/</p>
+      {% endif %}
+
+      <h4>Files kết quả gần đây</h4>
+      {% if outputs %}
+        <ul>
+          {% for f in outputs %}<li>{{ f }}</li>{% endfor %}
+        </ul>
+      {% else %}
+        <p>Không có file trong thư mục outputs/</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

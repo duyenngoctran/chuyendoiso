@@ -1,0 +1,6 @@
+text,prob_neg,prob_pos,pred_label
+ xem hoài không chán 😍,0.99758005,0.0024199514,neg
+ không tin nổi.,0.997595,0.002404972,neg
+ xem mệt luôn 😒,0.98857856,0.01142144,neg
+ câu view thôi.,0.98857856,0.01142144,neg
+ mong có thêm nhiều bài như này.,0.9940812,0.0059188185,neg
